@@ -1,0 +1,65 @@
+﻿@model SE406_Payne.Models.StatusCodeViewModel
+@section list {
+<h1>Status Codes</h1>
+}
+
+@if (TempData["ResultMessage"] != null)
+{
+    <p class="alert alert-success" id="successMessage">
+        @TempData["ResultMessage"]
+    </p>
+}
+<br />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "StatusCode", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewStatusCode.StatusCodeId)
+                    @Html.TextBoxFor(Model => Model.NewStatusCode.StatusCodeId,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewStatusCode.StatusCodeId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewStatusCode.StatusName)
+                    @Html.TextBoxFor(Model => Model.NewStatusCode.StatusName,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewStatusCode.StatusName"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-lg" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Status</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Status ID</th>
+                        <th>Status Name</th>
+                        <th> </th>
+                        <th> </th>
+
+                    </tr>
+                    @foreach (var status in Model.StatusCodeList)
+                    {
+                        <tr>
+                            <td>@status.StatusCodeId</td>
+                            <td>@status.StatusName</td>
+                            <td><a asp-action="Edit" asp-route-id="@status.StatusCodeId">Edit</a></td>
+                            <td><a asp-action="Delete" asp-route-id="@status.StatusCodeId" onclick='return confirm("Are you sure?");'>Delete</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

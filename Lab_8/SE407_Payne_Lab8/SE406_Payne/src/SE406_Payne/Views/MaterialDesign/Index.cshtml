@@ -1,0 +1,66 @@
+﻿@model SE406_Payne.Models.MaterialDesignViewModel
+@section list {
+    <h1>Material Designs</h1>
+}
+
+@if (TempData["ResultMessage"] != null)
+{
+    <p class="alert alert-success" id="successMessage">
+        @TempData["ResultMessage"]
+    </p>
+}
+<br />
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "MaterialDesign", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaterialDesign.MaterialDesignId)
+                    @Html.TextBoxFor(Model => Model.NewMaterialDesign.MaterialDesignId,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewMaterialDesign.MaterialDesignId" 
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaterialDesign.MaterialDesignType)
+                    @Html.TextBoxFor(Model => Model.NewMaterialDesign.MaterialDesignType,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewMaterialDesign.MaterialDesignType"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-lg" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Material Designs</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Material Designs ID</th>
+                        <th>Material Designs Type</th>
+                        <th> </th>
+                        <th> </th>
+                    </tr>
+                    @foreach (var MaterialDesign in Model.MaterialDesignList)
+                    {
+                        <tr>
+                            <td>@MaterialDesign.MaterialDesignId</td>
+                            <td>@MaterialDesign.MaterialDesignType</td>
+                            <td><a asp-action="Edit" asp-route-id="@MaterialDesign.MaterialDesignId">Edit</a></td>
+                            <td><a asp-action="Delete" asp-route-id="@MaterialDesign.MaterialDesignId" onclick='return confirm("Are you sure?");'>Delete</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

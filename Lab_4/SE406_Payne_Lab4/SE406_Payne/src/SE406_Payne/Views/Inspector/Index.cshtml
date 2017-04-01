@@ -1,0 +1,75 @@
+﻿@model SE406_Payne.Models.InspectorViewModel
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "Inspector", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorId)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorId,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorFirst)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorFirst,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorLast)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorLast,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorOrg)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorOrg,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorCertEffective)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorCertEffective,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorCertExpires)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorCertExpires,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-lg" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Inspector</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Inspector ID</th>
+                        <th>Inspector First</th>
+                        <th>Inspector Last</th>
+                        <th>Inspector Org</th>
+                        <th>Certifiacation Date</th>
+                        <th>Certifiaction Expires</th>
+                    </tr>
+                    @foreach(var Inspector in Model.InspectorList)
+                    {
+                        <tr>
+                            <td>@Inspector.InspectorId</td>
+                            <td>@Inspector.InspectorFirst</td>
+                            <td>@Inspector.InspectorLast</td>
+                            <td>@Inspector.InspectorOrg</td>
+                            <td>@Inspector.InspectorCertEffective</td>
+                            <td>@Inspector.InspectorCertExpires</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

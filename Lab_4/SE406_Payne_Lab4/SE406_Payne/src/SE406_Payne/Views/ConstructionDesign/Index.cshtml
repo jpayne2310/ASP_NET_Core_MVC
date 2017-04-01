@@ -1,0 +1,50 @@
+﻿@model SE406_Payne.Models.ConstructionDesignViewModel
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "ConstructionDesign", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewConstructionDesign.ConstructionDesignId)
+                    @Html.TextBoxFor(Model => Model.NewConstructionDesign.ConstructionDesignId,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewConstructionDesign.ConstructionDesignType)
+                    @Html.TextBoxFor(Model => Model.NewConstructionDesign.ConstructionDesignType,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-lg" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Constrution Designs</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Construction Design Id</th>
+                        <th>Construction Design Type</th>
+                    </tr>
+                    @foreach (var constructionDesign in Model.ConstructionDesignList)
+                    {
+
+                        <tr>
+                            <td>@constructionDesign.ConstructionDesignId</td>
+                            <td>@constructionDesign.ConstructionDesignType</td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

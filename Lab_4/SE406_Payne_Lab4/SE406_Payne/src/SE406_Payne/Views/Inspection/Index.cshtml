@@ -1,0 +1,90 @@
+﻿@model SE406_Payne.Models.InspectionViewModel
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "Inspection", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.InspectionId)
+                    @Html.TextBoxFor(Model => Model.NewInspection.InspectionId,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.BridgeId)
+                    @Html.TextBoxFor(Model => Model.NewInspection.BridgeId,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.InspectorId)
+                    @Html.TextBoxFor(Model => Model.NewInspection.InspectorId,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.InspectionDate)
+                    @Html.TextBoxFor(Model => Model.NewInspection.InspectionDate,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.DeckInspectionCodeId)
+                    @Html.TextBoxFor(Model => Model.NewInspection.DeckInspectionCodeId,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.SuperstructureInspectionCodeId)
+                    @Html.TextBoxFor(Model => Model.NewInspection.SuperstructureInspectionCodeId,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.SubstructureInspectionCodeId)
+                    @Html.TextBoxFor(Model => Model.NewInspection.SubstructureInspectionCodeId,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspection.InspectionNotes)
+                    @Html.TextBoxFor(Model => Model.NewInspection.InspectionNotes,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-lg" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Inspection</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Inspection ID</th>
+                        <th>Bridge ID</th>
+                        <th>Inspector ID</th>
+                        <th>Inspection Date</th>
+                        <th>Deck Inspection ID</th>
+                        <th>Super Code Id</th>
+                        <th>Sub Code ID</th>
+                        <th>Inspection Notes</th>
+                    </tr>
+                    @foreach (var Inspection in Model.InspectionList)
+                    {
+                        <tr>
+                            <td>@Inspection.InspectionId</td>
+                            <td>@Inspection.BridgeId</td>
+                            <td>@Inspection.InspectorId</td>
+                            <td>@Inspection.InspectionDate</td>
+                            <td>@Inspection.DeckInspectionCodeId</td>
+                            <td>@Inspection.SuperstructureInspectionCodeId</td>
+                            <td>@Inspection.SubstructureInspectionCodeId</td>
+                            <td>@Inspection.InspectionNotes</td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

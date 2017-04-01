@@ -1,0 +1,54 @@
+﻿@model SE406_Payne.Models.FunctionalClassViewModel
+@section list {
+    <h1>Function Classes</h1>
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "FunctionalClass", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewFunctionalClass.FunctionalClassId)
+                    @Html.TextBoxFor(Model => Model.NewFunctionalClass.FunctionalClassId,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewFunctionalClass.FunctionalClassId" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewFunctionalClass.FunctionalClassType)
+                    @Html.TextBoxFor(Model => Model.NewFunctionalClass.FunctionalClassType,
+                    new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewFunctionalClass.FunctionalClassType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-lg" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Functional Classes</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Functional Class ID</th>
+                        <th>Functional Class Type</th>
+                        <th> </th>
+                    </tr>
+                    @foreach (var FunctionalClass in Model.FunctionalClassList)
+                    {
+                        <tr>
+                            <td>@FunctionalClass.FunctionalClassId</td>
+                            <td>@FunctionalClass.FunctionalClassType</td>
+                            <td><a asp-action="Edit" asp-route-id="@FunctionalClass.FunctionalClassId">Edit</a></td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

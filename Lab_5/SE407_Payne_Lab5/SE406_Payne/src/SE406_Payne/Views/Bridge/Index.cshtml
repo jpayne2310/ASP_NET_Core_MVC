@@ -1,0 +1,178 @@
+﻿@model SE406_Payne.Models.BridgeViewModel
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "Bridge", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.Bridgeid)
+                    @Html.TextBoxFor(Model => Model.NewBridge.Bridgeid,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.Bridgeid" 
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.MaterialDesignId)
+                    @Html.TextBoxFor(Model => Model.NewBridge.MaterialDesignId,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.MaterialDesignId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.ConstructionDesignId)
+                    @Html.TextBoxFor(Model => Model.NewBridge.ConstructionDesignId,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.ConstructionDesignId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.FunctionalClassId)
+                    @Html.TextBoxFor(Model => Model.NewBridge.FunctionalClassId,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.FunctionalClassId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.StatusId)
+                    @Html.TextBoxFor(Model => Model.NewBridge.StatusId,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.StatusId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.CountyId)
+                    @Html.TextBoxFor(Model => Model.NewBridge.CountyId,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.CountyId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.NbiNumber)
+                    @Html.TextBoxFor(Model => Model.NewBridge.NbiNumber,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.NbiNumber"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.Rating)
+                    @Html.TextBoxFor(Model => Model.NewBridge.Rating,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.RouteNumber)
+                    @Html.TextBoxFor(Model => Model.NewBridge.RouteNumber,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.City)
+                    @Html.TextBoxFor(Model => Model.NewBridge.City,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.City"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.IntersectingFeature)
+                    @Html.TextBoxFor(Model => Model.NewBridge.IntersectingFeature,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.IntersectingFeature"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.CarriedFeature)
+                    @Html.TextBoxFor(Model => Model.NewBridge.CarriedFeature,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.CarriedFeature"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.Location)
+                    @Html.TextBoxFor(Model => Model.NewBridge.Location,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.Location"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.Built)
+                    @Html.TextBoxFor(Model => Model.NewBridge.Built,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.Built"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.Reconstructed)
+                    @Html.TextBoxFor(Model => Model.NewBridge.Reconstructed,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewBridge.TotalLength)
+                    @Html.TextBoxFor(Model => Model.NewBridge.TotalLength,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewBridge.TotalLength"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-lg" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Bridges</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Bridge ID</th>
+                        <th>Material Design ID</th>
+                        <th>Construction Design ID</th>
+                        <th>Funtional Class ID</th>
+                        <th>Status ID</th>
+                        <th>County ID</th>
+                        <th>NibNumber</th>
+                        <th>Rating</th>
+                        <th>Route Number</th>
+                        <th>City</th>
+                        <th>Intersecting Feature</th>
+                        <th>Carried Feature</th>
+                        <th>Location</th>
+                        <th>Built</th>
+                        <th>Reconstructed</th>
+                        <th>Total Length</th>
+                    </tr>
+                    @foreach (var bridges in Model.BridgeList)
+                    {
+                        <tr>
+                            <td>@bridges.Bridgeid</td>
+                            <td>@bridges.MaterialDesignId</td>
+                            <td>@bridges.ConstructionDesignId</td>
+                            <td>@bridges.FunctionalClassId</td>
+                            <td>@bridges.StatusId</td>
+                            <td>@bridges.CountyId</td>
+                            <td>@bridges.NbiNumber</td>
+                            <td>@bridges.Rating</td>
+                            <td>@bridges.RouteNumber</td>
+                            <td>@bridges.City</td>
+                            <td>@bridges.IntersectingFeature</td>
+                            <td>@bridges.CarriedFeature</td>
+                            <td>@bridges.Location</td>
+                            <td>@bridges.Built</td>
+                            <td>@bridges.Reconstructed</td>
+                            <td>@bridges.TotalLength</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
+
+
+

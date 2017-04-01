@@ -1,0 +1,99 @@
+﻿@model SE406_Payne.Models.InspectorViewModel
+@section list {
+    <h1>Inspectors</h1>
+}
+<div class="container-fluid">
+
+    @using (Html.BeginForm("Index", "Inspector", FormMethod.Post))
+            {
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorId)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorId,
+                    new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspector.InspectorId"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorFirst)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorFirst,
+                    new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspector.InspectorFirst"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorLast)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorLast,
+                    new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspector.InspectorLast"
+                          class="text-danger"></span>
+                </div>
+                
+            </div>
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorOrg)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorOrg,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspector.InspectorOrg"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorCertEffective)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorCertEffective,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspector.InspectorCertEffective"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspector.InspectorCertExpires)
+                    @Html.TextBoxFor(Model => Model.NewInspector.InspectorCertExpires,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspector.InspectorCertExpires"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-lg" />
+                </div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    }
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Inspector</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Inspector ID</th>
+                        <th>Inspector First</th>
+                        <th>Inspector Last</th>
+                        <th>Inspector Org</th>
+                        <th>Certifiacation Date</th>
+                        <th>Certifiaction Expires</th>
+                        <th> </th>
+                    </tr>
+                    @foreach (var Inspector in Model.InspectorList)
+                    {
+                        <tr>
+                            <td>@Inspector.InspectorId</td>
+                            <td>@Inspector.InspectorFirst</td>
+                            <td>@Inspector.InspectorLast</td>
+                            <td>@Inspector.InspectorOrg</td>
+                            <td>@Inspector.InspectorCertEffective</td>
+                            <td>@Inspector.InspectorCertExpires</td>
+                            <td><a asp-action="Edit" asp-route-id="@Inspector.InspectorId">Edit</a></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

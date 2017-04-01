@@ -1,0 +1,61 @@
+﻿@model SE406_Payne.Models.InspectionCodeViewModel
+@section list {
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "InspectionCode", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspectionCode.InspectionCodeId)
+                    @Html.TextBoxFor(Model => Model.NewInspectionCode.InspectionCodeId,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspectionCode.InspectionCodeId" 
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspectionCode.InspectionCodeName)
+                    @Html.TextBoxFor(Model => Model.NewInspectionCode.InspectionCodeName,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspectionCode.InspectionCodeName"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewInspectionCode.InspectionCodeDesc)
+                    @Html.TextBoxFor(Model => Model.NewInspectionCode.InspectionCodeDesc,
+                   new { @class = "form-control" })
+                    <span asp-validation-for="@Model.NewInspectionCode.InspectionCodeDesc"
+                          class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-lg" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Inspection Codes</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Inspection Code ID</th>
+                        <th>Inspection Code Name</th>
+                        <th>Inspection Code Desc</th>
+                    </tr>
+                    @foreach (var InspectionCode in Model.InspectionCodeList)
+                    {
+                        <tr>
+                            <td>@InspectionCode.InspectionCodeId</td>
+                            <td>@InspectionCode.InspectionCodeName</td>
+                            <td>@InspectionCode.InspectionCodeDesc</td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>

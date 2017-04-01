@@ -1,0 +1,111 @@
+﻿@model SE406_Payne.Models.MaintenanceRecordViewModel
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm("Index", "MaintenanceRecord", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceRecordId)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceRecordId,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceActionId)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceActionId,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.InspectorId)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.InspectorId,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedStart)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedStart,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedEnd)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedEnd,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceActualStart)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceActualStart,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceActualEnd)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceActualEnd,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedCost)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceProjectedCost,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceActualCost)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceActualCost,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.MaintenanceNotes)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.MaintenanceNotes,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(Model => Model.NewMaintenanceRecord.InspectorNotes)
+                    @Html.TextBoxFor(Model => Model.NewMaintenanceRecord.InspectorNotes,
+                   new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Submit" class="btn btn-lg" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Maintenance Records</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Maint ID</th>
+                        <th>Maint Action ID</th>
+                        <th>Inspector ID</th>
+                        <th>Maint Proj Start</th>
+                        <th>Maint Proj End</th>
+                        <th>Maint Actual Start</th>
+                        <th>Maint Actual End</th>
+                        <th>Maint Proj Cost</th>
+                        <th>Maint Actual Cost</th>
+                        <th>Maint Notes</th>
+                        <th>Inspector Notes</th>
+                    </tr>
+                    @foreach (var MaintenanceRecord in Model.MaintenanceRecordList)
+                    {
+                        <tr>
+                            <td>@MaintenanceRecord.MaintenanceRecordId</td>
+                            <td>@MaintenanceRecord.MaintenanceActionId</td>
+                            <td>@MaintenanceRecord.InspectorId</td>
+                            <td>@MaintenanceRecord.MaintenanceProjectedStart</td>
+                            <td>@MaintenanceRecord.MaintenanceProjectedEnd</td>
+                            <td>@MaintenanceRecord.MaintenanceActualStart</td>
+                            <td>@MaintenanceRecord.MaintenanceActualEnd</td>
+                            <td>@MaintenanceRecord.MaintenanceProjectedCost</td>
+                            <td>@MaintenanceRecord.MaintenanceActualCost</td>
+                            <td>@MaintenanceRecord.MaintenanceNotes</td>
+                            <td>@MaintenanceRecord.InspectorNotes</td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
